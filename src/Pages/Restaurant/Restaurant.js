@@ -6,6 +6,7 @@ import { Link as ScrollLink, Element, Events, animateScroll as scroll, scrollSpy
 
 import FoodSection from './FoodSection'
 import RestaurantInfo from './RestaurantInfo'
+import CommentSection from './CommentSection'
 
 class Restaurant extends React.Component {
     constructor(props) {
@@ -91,6 +92,7 @@ class Restaurant extends React.Component {
                             </Element>
 
                             <RestaurantInfo/>
+                            <CommentSection/>
                         </div>
                     </div>
             </div>

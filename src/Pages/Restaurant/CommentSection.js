@@ -1,42 +1,52 @@
 import React from 'react'
-import { faMapMarker, faClock } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import Comment from './Comment'
 
 function CommentSection(props) {
     return (
         <div className="p-1">
             <h4 className="font-weight-bold">
-                اطلاعات رستوران
+                نظرات کاربران درمورد دینارو
             </h4>
             <hr />
-            <h4>
-                <strong>
-                    دینارو
-                </strong>
-            </h4>
-            <div className="py-3">
-                <FontAwesomeIcon icon={faMapMarker} />
-                <address className="small d-inline px-1">
-                    گاندی جنوبی، شیسبش شیس بشس یبخهصثش ثب
-                </address>
+            <div className="small text-secondary">
+                شما هم می‌توانید بعد از سفارش از این رستوران، نظر خود را درباره‌ی این رستوران ثبت کنید
             </div>
-            <div className="font-weight-bold py-3">
-                <FontAwesomeIcon icon={faClock} />
-                <span className="px-1">
-                    ساعت سفارش گیری
-                </span>
+            <div className="text-center p-3">
+                Stars
             </div>
-            <div className="row small">
-                <div className="col-md-6">
-                    <span>
-                        همه روزه
-                    </span>
-                    <span className="float-left">
-                        از کوفت تا زهرمار
-                    </span>
-                    <hr />
-                </div>
+            <div className="w-75 m-auto">
+                {[1,2,3,4].map(item => (
+                    <React.Fragment>
+                        <hr />
+                        <div className="row text-center">
+                            <div className="col-9">
+                                <div className="row">
+                                    <div className="col-10">
+                                        <div className="progress direction-ltr">
+                                            <div className="progress-bar bg-warning" style={{ width: '69%', direction: 'ltr' }} role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valueMax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div className="col-2">
+                                        <span className="text-warning float-right">
+                                            4.8
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-3">
+                                
+                                <span className="small">
+                                    کیفیت غذا
+                                </span>
+                            </div>
+                        </div>
+                    </React.Fragment>
+                ))
+
+                }
             </div>
+            <hr />
+            <Comment/>
         </div>
     )
 }

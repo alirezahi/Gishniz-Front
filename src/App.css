@@ -322,6 +322,10 @@ body, *{
   z-index:1000!important;
 }
 
+.direction-ltr{
+  direction: ltr;
+}
+
 @media (min-width: 576px) {
   .w-sm-25 {
     width: 25% !important;
