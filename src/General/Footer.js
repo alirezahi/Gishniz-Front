@@ -4,11 +4,11 @@ import FooterLogo2 from '../assets/images/footer-logo-2.png'
 
 function Header() {
     return (
-        <footer className="bg-dark">
+        <footer className="bg-dark small">
             <div className="container-fluid footer">
                 <div className="row">
                     <div className="col-md-4 pt-5">
-                        <div className="text-white">
+                        <div className="text-white pt-3">
                             مراقبت و محافظت از حساب کاربری و رمزعبور هر کاربر بر عهده کاربر است. ریحون سریعترین راه سفارش آنلاین غذا است. منوی عکس‌دار رستوران‌های اطرافتان را بر اساس مکان خود به راحتی مشاهده کنید و سفارش دهید.
                         </div>
                         <div>
