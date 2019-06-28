@@ -3,27 +3,47 @@ import Checkbox from '../../General/Checkbox'
 import FlipMove from 'react-flip-move'
 
 class SearchFood extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            categories:[],
+        }
+    }
     render(){
         return (
-            <ul className="list-group p-0">
+            <ul id="category_search" className="list-group p-0">
+                <li className="list-group-item">
+                    <div className="small text-secondary">
+                        فیلتر براساس انواع غذا
+                    </div>
+                </li>
                 <FlipMove typeName={null}>
-                    <li key={this.props.items[0]} className="list-group-item">
-                        <div className="small text-secondary">
-                            فیلتر براساس انواع غذا
-                        </div>
-                    </li>
-                    <li key={this.props.items[1]} className="list-group-item">
+                    <li className="list-group-item border-none">
                         <div className="form-group">
-                            <input type="text" className="form-control" id="formGroupExampleInput" placeholder="جستجوی دسته‌بندی غذاها" />
-                        </div>
-                        <div className="form-check">
-                            <Checkbox name={this.props.items[0]} count={38} />
+                            <input onChange={(e) => this.props.searchCategory(e.target.value)} type="text" className="form-control" id="formGroupExampleInput" placeholder="جستجوی دسته‌بندی غذاها" />
                         </div>
                     </li>
-                    {this.props.items.filter((i,index) => index !== 0).map(item => (
-                        <li key={item} className="list-group-item">
+                    <li key={this.props.items[0] ? this.props.items[0].id : ''} className="list-group-item">
+                        <div className="form-check">
+                            <Checkbox 
+                                checked={this.props.items[0]? this.props.items[0].checked : false}
+                                onChange={this.props.updateFilter} 
+                                name={this.props.items[0] ? this.props.items[0].name : ''} 
+                                count={38} 
+                                id={this.props.items[0] ? this.props.items[0].id : ''}
+                            />
+                        </div>
+                    </li>
+                    {this.props.items.filter((i,index) => index !== 0).sort((a,b)=>(a.id>b.id)).map(item => (
+                        <li key={item.id} className="list-group-item">
                             <div className="form-check">
-                                <Checkbox name={item} count={38} />
+                                <Checkbox 
+                                    checked={item.checked}
+                                    onChange={this.props.updateFilter} 
+                                    name={item.name} 
+                                    count={38} 
+                                    id={item.id}
+                                />
                             </div>
                         </li>
                     ))}

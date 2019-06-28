@@ -312,7 +312,22 @@ body, *{
   pointer-events: none;
 }
 
+.ant-affix #affix-one{
+  box-shadow: 0 0 0.4rem rgba(0, 0, 0, .12);
+  -webkit-box-shadow: 0 0 0.4rem rgba(0, 0, 0, .12);
+}
 
+.section-tab:hover{
+  border-bottom: 2px solid linear-gradient(to right, rgba(255, 255, 255, 1) 0%, white 27%, rgb(160, 48, 48) 28%, rgba(160, 48, 48) 66%, rgba(255, 255, 255, 1) 67%, rgba(255, 255, 255, 1) 100%);
+}
+
+#category_search li:nth-child(2){
+  border-bottom: none !important;
+}
+
+#category_search li:nth-child(3){
+  border-top: none !important;
+}
 
 
 
@@ -320,6 +335,10 @@ body, *{
 /****** general *******/
 .z-index-1000,.z-index-1000 > div{
   z-index:1000!important;
+}
+
+.bg-full-black {
+  background-color: #202020;
 }
 
 .direction-ltr{

@@ -11,13 +11,13 @@ function RestaurantInfo(props) {
             <hr/>
             <h4>
                 <strong>
-                دینارو
+                {props.item ? props.item.name : ''}
                 </strong>
             </h4>
             <div className="py-3">
                 <FontAwesomeIcon icon={faMapMarker}/> 
                 <address className="small d-inline px-1">
-                 گاندی جنوبی، شیسبش شیس بشس یبخهصثش ثب
+                    {props.item.address ? props.item.address.address_line : ''}
                 </address>
             </div>
             <div className="font-weight-bold py-3">
@@ -32,7 +32,7 @@ function RestaurantInfo(props) {
                             همه روزه
                     </span>
                         <span className="float-left">
-                            از کوفت تا زهرمار
+                        از {props.item && props.item.opening_time ? props.item.opening_time.split(':').filter((item, index) => index != 2).join(':') : ''} تا {props.item && props.item.closing_time ? props.item.closing_time.split(':').filter((item, index) => index != 2).join(':') : ''}
                     </span>
                     <hr/>
                 </div>

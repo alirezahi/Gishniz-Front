@@ -28,7 +28,7 @@ function Header() {
                         </li>
                         <li className="p-2 pr-4">
                             {/* <a className="text-decoration-none" href="/">راهنما</a> */}
-                            <Link to="/restaurant/">ورود</Link>
+                            <Link to="/restaurant/">راهنما</Link>
                         </li>
                     </ul>
                     <span className="my-2 my-lg-0 px-1">

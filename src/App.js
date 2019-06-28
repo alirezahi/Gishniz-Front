@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './bootstrap-rtl.css'
 import './App.css'
 
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Header from './General/Header'
 import Footer from './General/Footer'
@@ -15,8 +15,8 @@ function App() {
     <Router>
       <div className="App">
         <Header/>
-        <Route path="/restaurants/" component={Restaurants} />
-        <Route path="/restaurant/" component={Restaurant} />
+        <Route exact path="/restaurants/" component={Restaurants} />
+        <Route path="/restaurants/:id" component={Restaurant} />
         <Footer/>
       </div>
     </Router>
