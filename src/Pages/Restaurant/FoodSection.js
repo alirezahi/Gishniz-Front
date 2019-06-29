@@ -16,13 +16,13 @@ function FoodSection(props) {
         <div className={`restaurant-section-item rounded border border-white box-shadow-light bg-white`}>
            <div className="p-3">
                 <span className="font-weight-bold">
-                    پیتزا رومینو
+                    {props.item ? props.item.name : ''}
                 </span>
                 <span className="float-left font-weight-bold">
-                    {getPrice(2000)}
+                    {getPrice( props.item ? props.item.price : 0 )}
                 </span>
                 <div className="text-secondary small font-weight-bold py-2">
-                    سس مارینا
+                    {props.item ? props.item.description : ''}
                 </div>
                 <div>
                     <button className={`start-order-btn px-3 py-1 small`}>

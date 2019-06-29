@@ -18,7 +18,7 @@ class SearchFood extends React.Component {
                     </div>
                 </li>
                 <FlipMove typeName={null}>
-                    <li className="list-group-item border-none">
+                    <li className="list-group-item">
                         <div className="form-group">
                             <input onChange={(e) => this.props.searchCategory(e.target.value)} type="text" className="form-control" id="formGroupExampleInput" placeholder="جستجوی دسته‌بندی غذاها" />
                         </div>

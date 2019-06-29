@@ -74,13 +74,13 @@ function Header() {
                             </div>
                             <ul>
                                 <li>
-                                    <img src={CafeBazarDownload} alt="download app" />
+                                    <img className="border rounded border-secondary" src={CafeBazarDownload} alt="download app" />
                                 </li>
-                                <li>
-                                    <img src={GooglePlayDownload} alt="download app" />
+                                <li >
+                                    <img className="border rounded border-secondary" src={GooglePlayDownload} alt="download app" />
                                 </li>
-                                <li>
-                                    <img src={SibDownload} alt="download app" />
+                                <li className="rounded border-secondary">
+                                    <img className="border rounded border-secondary" src={SibDownload} alt="download app" />
                                 </li>
                             </ul>
                         </div>
@@ -92,12 +92,14 @@ function Header() {
                     
                 </div>
             </footer>
-            <div className="row bg-dark">
-                <div className="col-md-6">
-                    © 2017, Reyhoon, All Rights Reserved.
+            <div class="container-fluid">
+                <div className="row bg-dark">
+                    <div className="col-md-6">
+                        © 2017, Reyhoon, All Rights Reserved.
                         </div>
-                <div className="col-md-6">
+                    <div className="col-md-6">
 
+                    </div>
                 </div>
             </div>
         </React.Fragment>

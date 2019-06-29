@@ -1,8 +1,6 @@
 import React from 'react'
-import StarRatingComponent from 'react-star-rating-component'
-import { faStar, faStarHalf } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom"
+import StarRating from '../../General/StarRating'
 
 function RestaurantSection(props){
     return(
@@ -21,23 +19,10 @@ function RestaurantSection(props){
                             {props.item.name || ''}
                         </h4>
                         <div className="d-flex">
-                            <StarRatingComponent
-                                name="rate1"
-                                starCount={5}
-                                value={4.5}
-                                editing={false}
-                                renderStarIcon={(index, value) => {
-                                    return (
-                                        <FontAwesomeIcon icon={ faStar } />
-                                    )
-                                }}
-                                renderStarIconHalf={() => {
-                                    return (
-                                        <FontAwesomeIcon icon={ faStarHalf } />
-                                    )
-                                }}
-                            />
-                            {props.item.average_rate}
+                            <StarRating value={props.item.average_rate}/>
+                            <span className="small">
+                                {props.item.average_rate}
+                            </span>
                         </div>
                         <div className="small">
                             {(props.item.categories || []).map(item => item.name).join(' • ')}

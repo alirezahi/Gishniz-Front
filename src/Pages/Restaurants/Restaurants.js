@@ -115,6 +115,12 @@ class Restaurants extends React.Component {
                     t.id === item.id
                 ))
             )
+        
+        // let 
+        // var count = {};
+        // uniqueCount.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
+        // console.log(count);
+
         this.setState({ category_list})
     }
 
