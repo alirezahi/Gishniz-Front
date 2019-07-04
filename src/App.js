@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './bootstrap-rtl.css'
 import './App.css'
 import 'css-star-rating/css/star-rating.css'
+import 'antd/dist/antd.css';
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 

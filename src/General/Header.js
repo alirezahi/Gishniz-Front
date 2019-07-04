@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Header() {
     return (
         <header>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light small">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div id="navbarText">
                     <ul className="nav-items inline-item m-0 p-3">
                         <li className="border-left p-2">
@@ -25,8 +25,10 @@ function Header() {
                             <ReyhoonLogo className="sm-logo" />
                         </Link>
                     </span>
+                    
                 </div>
             </nav>
+            <hr class="border-width-3 border-reyhoon margin-0" />
         </header>
     );
 }
