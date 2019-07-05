@@ -85,7 +85,7 @@ class Restaurant extends React.Component {
                                     <a href="/" className="text-dark"> {this.state.restaurant.name} </a>
                                     </span>
                                     <span className="float-left restaurant-dir rounded px-2">
-                                        <a href="/"> بازگشت </a>&#62;
+                                        <a href="/restaurants"> بازگشت </a>&#62;
                                 </span>
                                 </div>
                                 <div className="rounded bg-white my-3 box-shadow-light">
@@ -113,7 +113,7 @@ class Restaurant extends React.Component {
                                         </div>
 
                                     </div>
-                                    <Affix className="rounded-bottom z-index-1000" target={() => this.container}>
+                                    <Affix className="rounded-bottom z-index-1000">
                                         <div id="affix-one" className="container bg-white rounded-bottom">
                                             <hr className="grey-gradient m-0" />
                                             <div className="row bg-white rounded-bottom">

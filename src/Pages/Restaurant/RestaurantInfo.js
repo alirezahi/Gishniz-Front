@@ -32,7 +32,7 @@ function RestaurantInfo(props) {
                             همه روزه
                     </span>
                         <span className="float-left">
-                        از {props.item && props.item.opening_time ? props.item.opening_time.split(':').filter((item, index) => index != 2).join(':') : ''} تا {props.item && props.item.closing_time ? props.item.closing_time.split(':').filter((item, index) => index != 2).join(':') : ''}
+                        از {props.item && props.item.opening_time ? props.item.opening_time.split(':').filter((item, index) => index != 2).join(':') : ''} ظهر تا {props.item && props.item.closing_time ? props.item.closing_time.split(':').filter((item, index) => index != 2).join(':') : ''} شب
                     </span>
                     <hr/>
                 </div>

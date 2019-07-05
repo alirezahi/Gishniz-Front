@@ -3,6 +3,8 @@ import HeaderImage from '../../assets/images/header-restaurant.jpg'
 import SearchFood from './SearchFood'
 import RestaurntSection from './RestaurantSection'
 import axios from 'axios'
+import { faSearch } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 const queryString = require('query-string');
 
 
@@ -10,11 +12,11 @@ class Restaurants extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
-            a: ['a', 'b', 'c', 'd', 'e'],
             items:[],
             category_list: [],
             filters: [],
             search_category_value: '',
+            restaurantSeachValue:'',
          };
     }
 
@@ -52,22 +54,26 @@ class Restaurants extends React.Component {
             if (this.state.filters.length === 0){
                 return this.state.items
                     .filter(item => this.is_disabled(item))
+                    .filter(item => item.name.includes(this.state.restaurantSeachValue))
             }
             else{
                 return this.state.items
                     .filter(item => this.is_disabled(item))
                     .filter(item => item.categories.some(cat => this.state.filters.includes(cat.id)))
+                    .filter(item => item.name.includes(this.state.restaurantSeachValue))
             }
         }
         else{
             if (this.state.filters.length === 0) {
                 return this.state.items
                     .filter(item => !this.is_disabled(item))
+                    .filter(item => item.name.includes(this.state.restaurantSeachValue))
             }
             else {
                 return this.state.items
                     .filter(item => !this.is_disabled(item))
                     .filter(item => item.categories.some(cat => this.state.filters.includes(cat.id)))
+                    .filter(item => item.name.includes(this.state.restaurantSeachValue))
             }
         }
     }
@@ -106,20 +112,27 @@ class Restaurants extends React.Component {
         
     }
 
+    searchRestaurant = (e) => {
+        this.setState({restaurantSeachValue:e.target.value})
+    }
+
     categories = () => {
-        let category_list = this.state.items
+        let category_list_temp = this.state.items
             .map(item => item.categories)
             .reduce(((a,b) => [...a,...b]),[])
+
+
+        var count = {};
+        category_list_temp.forEach(function (i) { count[i.name] = (count[i.name] || 0) + 1; });
+
+        let category_list = category_list_temp
             .filter((item, index, self) =>
                 index === self.findIndex((t) => (
                     t.id === item.id
                 ))
             )
+            .map(item => ({...item, count:count[item.name]}))
         
-        // let 
-        // var count = {};
-        // uniqueCount.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
-        // console.log(count);
 
         this.setState({ category_list})
     }
@@ -130,16 +143,31 @@ class Restaurants extends React.Component {
                 <div className="row">
                     <img className="w-100" src={HeaderImage} alt="عکس اصلی" />
                 </div>
-                <div className="row"></div>
-                <div className="row"></div>
-                <div className="row py-3">
+                <div className="row bg-white px-5 py-2 font-weight-bold border">
+                    <h5>
+                        {`${this.state.items.length} رستوران امکان سرویس‌دهی به ${ queryString.parse(this.props.location.search)['area']}▼ را دارند`}
+                    </h5>
+                </div>
+                <div className="row bg-white px-5 py-2">
+                    <div className="w-md-50 w-100 search-restaurant">
+                        <label class="sr-only" for="inlineFormInputGroupUsername">جستجوی رستوران در این محدوده</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend bg-light">
+                                <div class="input-group-text bg-light">
+                                    <FontAwesomeIcon icon={faSearch}/>
+                                </div>
+                            </div>
+                            <input type="text" onChange={this.searchRestaurant} class="form-control bg-light" id="inlineFormInputGroupUsername" placeholder="جستجوی رستوران در این محدوده" />
+                        </div>
+                    </div>
+                </div>
+                <div className="row py-3 bg-light">
                     <div className="col-md-3">
                         <SearchFood 
                             items={this.sorted_categories()} 
                             updateFilter={this.update_filter}
                             searchCategory={this.search_category}
                         />
-
                     </div>
                     <div className="col-md-9">
                         <div className="row">

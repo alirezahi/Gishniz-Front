@@ -29,7 +29,7 @@ class SearchFood extends React.Component {
                                 checked={this.props.items[0]? this.props.items[0].checked : false}
                                 onChange={this.props.updateFilter} 
                                 name={this.props.items[0] ? this.props.items[0].name : ''} 
-                                count={38} 
+                                count={this.props.items[0] ? this.props.items[0].count : 0} 
                                 id={this.props.items[0] ? this.props.items[0].id : ''}
                             />
                         </div>
@@ -41,7 +41,7 @@ class SearchFood extends React.Component {
                                     checked={item.checked}
                                     onChange={this.props.updateFilter} 
                                     name={item.name} 
-                                    count={38} 
+                                    count={item.count} 
                                     id={item.id}
                                 />
                             </div>
